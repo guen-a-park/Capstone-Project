@@ -2,7 +2,7 @@
 
 ## Reference  
 번호판 인식  
-https://mldlcvmjw.tistory.com/m/330 
+https://mldlcvmjw.tistory.com/m/330  
 https://pyimagesearch.com/2018/08/20/opencv-text-detection-east-text-detector/  
 yolo train  
 https://github.com/qqwweee/keras-yolo3  
