@@ -1,5 +1,23 @@
 # Capstone-Project
 
+
+컴퓨터 상 yolo v3 이용한것 flow chart로 만들기
+https://app.diagrams.net/
+
+코드 확인
+이미지 전처리
+data augmentation
+
+라즈베리파이 카메라 연결 + motion library 사용하기
+https://enng.tistory.com/m/10
+https://developmentdiary.tistory.com/486
+
+samba 이용해서 라즈베리파이와 통신, 파일받기
+
+그대로 컴퓨터로 yolo 연산하기
+
+
+
 ## Reference  
 번호판 인식  
 https://mldlcvmjw.tistory.com/m/330  
