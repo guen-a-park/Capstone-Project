@@ -17,22 +17,17 @@ yolo2 = YOLO(model_path='C:/Users/kate1/capstone/keras-yolo3/model_data/helmet.h
            score=0.55)
 
 
-
 FLAGS = None
 
-#'C:/Users/kate1/capstone/train_image/image/1009.jpg'
-#잠깐 주석 #BikesHelmets27.png   nohelmet.PNG
-img = Image.open(os.path.join('C:/Users/kate1/capstone/BikesHelmets27.png')) #1009랑 1024 판단못함..#test 1021
+img = Image.open(os.path.join('C:/Users/kate1/capstone/helmet_test.PNG'))
 img_copy = img.copy()
 detected_img,label,left,top,right,bottom = yolo2.detect_image(img)
-print(label,left,top,right,bottom) 
+#print(label,left,top,right,bottom) 
 result=np.asarray(detected_img)
-# cam=result
-# print(cam.shape[1], cam.shape[0])
 
 area =(left,top,right,bottom)
 bdbox = img_copy.crop(area) #image[ystart:ystop, xstart:xstop] left, upper, right, lower
-if label == "Helmet":   #Non
+if label == "NonHelmet": 
     bdbox.show()
     plt.figure(figsize=(12, 12))
     plt.imshow(img)
@@ -41,9 +36,8 @@ if label == "Helmet":   #Non
 else:
     print("헬멧을 착용했습니다.")
 
+#######################################################
 
-
-########################################################
 import cv2
 import numpy as np
 from imutils.object_detection import non_max_suppression
@@ -61,17 +55,13 @@ padding = 0.05
 
 def textROI(image_cr):
     # load the input image and grab the image dimensions
-    #image_cr = cv2.imread(image_cr)
     
     image_cr = cv2.cvtColor(np.array(image_cr), cv2.COLOR_RGB2BGR)
+
     orig = image_cr.copy()
     (origH, origW) = image_cr.shape[:2]
 
-    print(origH, origW)
 
-    # 자동차 이미지를 잘라오게 되면 자동차의 크기에 따라 이미지의 사이즈가 달라지기 때문에(정사각형이 아니기 때문에)
-    # 번호판 글씨가 왜곡(늘려지거나 줄여지는 현상)될 수 있다(번호판은 차의 중앙에 있다)
-    # 그러므로 늘리거나 줄임없이 정사각형 이미지로(320x320) 잘라내기 위해 다음 작업을 실행한다.
     rW = origW / float(frame_size)
     rH = origH / float(frame_size)
     newW = int(origW / rH)
@@ -82,14 +72,13 @@ def textROI(image_cr):
     image_cr = cv2.resize(image_cr, (newW, frame_size))
     scale_image = image_cr[0:frame_size, start:start+frame_size]
     (H, W) = scale_image.shape[:2]
-    #(H, W) = image.shape[:2]
 
     #중간점검
-    # cv2.imshow("orig", orig)
-    # cv2.imshow("resize", image_cr)
-    # cv2.waitKey(0)
-    # cv2.destroyAllWindows()
-    #cv2.imshow("scale_image", scale_image)
+    cv2.imshow("orig", orig)
+    cv2.imshow("resize", image_cr)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+    cv2.imshow("scale_image", scale_image)
 
     # define the two output layer names for the EAST detector model
     layerNames = [
@@ -169,50 +158,31 @@ def textROI(image_cr):
 
 def textRead(image):
     # apply Tesseract v4 to OCR
-    config = ("-l eng --oem 3 --psm 7") #7 to 4  kor+eng
+    #config = ("-l eng --oem 1 --psm 7") #7 to 4  kor+eng
+    #config = ("digits --oem 3 --psm 3")
+    config = ('--psm 10 --oem 3 -c tessedit_char_whitelist=0123456789')
     text = pytesseract.image_to_string(image, config=config)
-    # print(text)
-    # exit()
-    # display the text OCR'd by Tesseract
+
+    #display the text OCR'd by Tesseract
     print("OCR TEXT : {}\n".format(text))
 
     # strip out non-ASCII text
     text = "".join([c if c.isalnum() else "" for c in text]).strip()
-    print("Alpha numeric TEXT : {}\n".format(text))
+    #print("Alpha numeric TEXT : {}\n".format(text))
     return text
 
 # Loading image
-
-#([x,y,w,h],car_image) = carROI(img)
 ([startX,startY,endX,endY], text_image) = textROI(bdbox)
-
 cv2.imshow('plate_img',text_image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 text = textRead(text_image)
- 
-#text = textRead(bdbox)
-print(text)
-# exit()
-#process_image = processROI(text_image) #필요없는듯
+image_cr = cv2.cvtColor(np.array(bdbox), cv2.COLOR_RGB2BGR)
 
-#text = textRead(process_image)
-
-
-
-####x,y들어가서 수정필요
-# cv2.rectangle(img_copy, (x+startX, y+startY), (x+endX, y+endY), (0, 255, 0), 2)
-
-# cv2.putText(img_copy, text, (x+startX, y+startY-10),
-#     cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 0, 255), 3)
-
-# # show the output image
-# cv2.imshow("OCR Text Recognition : "+text, img_copy)
-# cv2.imshow('plate_img',text_image)
-
-# cv2.waitKey(0)
-# cv2.destroyAllWindows()
-
+# show the output image
+cv2.imshow("OCR Text Recognition : "+text, image_cr)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
 
 
