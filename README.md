@@ -9,7 +9,7 @@
 프로젝트에 대한 자세한 설명은 보고서와 비디오를 통해 확인할 수 있다. 
 
 
-##  Abstract
+#  Abstract
 
 본 프로젝트에서는 Object Detection 알고리즘 YOLOv3와 라즈베리 파이를 활용해 오토바이 헬멧 착용 단속 카메라를 제작함으로써 효과적으로 헬멧 착용을 독려할 수 있는 시스템을 제안한다.
 
@@ -18,7 +18,7 @@
 
 
 
-## Environments
+# Environments
 
 본 프로젝트는 아나콘다를 이용한 로컬환경 또는 colab에서 실행이 가능하다.
 
@@ -38,7 +38,7 @@ pip install -r requirements.txt
 
 
 
-## File explanation
+# File explanation
 
 - **convert_xml_csv.py**
 
@@ -75,7 +75,7 @@ pip install -r requirements.txt
 
 
 
-## Contributors
+# Contributors
 
 
 
@@ -93,7 +93,7 @@ pip install -r requirements.txt
 
 
 
-## Reference  
+# Reference  
 
 - [qqwweee/keras-yolo3](https://github.com/qqwweee/keras-yolo3)
 - [tzutalin/labelImg](https://github.com/tzutalin/labelImg)
