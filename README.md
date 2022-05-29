@@ -42,9 +42,7 @@ pip install -r requirements.txt
 
 - **convert_xml_csv.py**
 
-  train image와 [labelImg](https://github.com/tzutalin/labelImg)를 통해 만들어준 annotation 파일을 train에 필요한 하나의 csv로 만들어주는 코드이다. 
-
-  그 결과인 helmet_anno.csv에서는 train image 경로와 함께 바운딩박스와 label 정보가 들어가게된다.
+  train image와 [labelImg](https://github.com/tzutalin/labelImg)를 통해 만들어준 annotation 파일을 train에 필요한 하나의 csv로 만들어주는 코드이다. 그 결과인 helmet_anno.csv에서는 train image 경로와 함께 바운딩박스와 label 정보가 들어가게된다.
 
 - **augmentation.ipynb**
 
