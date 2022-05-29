@@ -12,7 +12,7 @@
 
 본 프로젝트에서는 Object Detection 알고리즘 YOLOv3와 라즈베리 파이를 활용해 오토바이 헬멧 착용 단속 카메라를 제작함으로써 효과적으로 헬멧 착용을 독려할 수 있는 시스템을 제안한다.
 
-**Keywords ** Raspberry Pi, YOLOv3, Text Detection, OCR
+**Keywords** Raspberry Pi, YOLOv3, Text Detection, OCR
 
 
 
@@ -30,7 +30,7 @@ cd Capstone-Project
 pip install -r requirements.txt
 ```
 
-로컬 환경에서 tensorflow-gpu 를 이용하기 위해서는  다음 링크를 참고해 별도의 환경설정이 필요하다. (윈도우10기준) [Link]()
+로컬 환경에서 tensorflow-gpu 를 이용하기 위해서는  다음 링크를 참고해 별도의 환경설정이 필요하다. (윈도우10기준) [Link](https://github.com/guen-a-park/Capstone-Project/blob/main/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%20%EC%84%B8%ED%8C%85%20%EB%AC%B8%EC%84%9C.pdf)
 
 - colab에서 실행할 경우 본 프로젝트를 드라이브에서 clone 해준 후 **for_colab** 폴더의 object_detection_yolo_keras.ipynb 파일을 통해 코드실행여부를 확인할 수 있다.
 
