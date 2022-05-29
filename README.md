@@ -54,7 +54,7 @@ pip install -r requirements.txt
 - **train.py**
 
   > custom data를 이용해 새로운 yolo model을 만들기 위한 코드이다. log_dir에서 trainig 도중 생성된 모델 역시 확인할 수 있다.
->
+  >
   > **Note** : batch size에 따라(사이즈가 커질수록) 메모리 에러가 발생할 수 있다. 또한 gpu 성능에 따라 로컬 실행이 어려울 수 있으므로 필요하다면 구글 드라이브에서 annotation.csv를 다시 생성하고 colab에서 train해준다.
 
 - **yolo.py**
