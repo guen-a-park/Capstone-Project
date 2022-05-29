@@ -6,16 +6,16 @@
 
 [Report]() / [Video]() 
 
-프로젝트에 대한 자세한 설명은 보고서와 비디오를 통해 확인할 수 있다.
+프로젝트에 대한 자세한 설명은 보고서와 비디오를 통해 확인할 수 있다. 
+
 
 ##  Abstract
 
 본 프로젝트에서는 Object Detection 알고리즘 YOLOv3와 라즈베리 파이를 활용해 오토바이 헬멧 착용 단속 카메라를 제작함으로써 효과적으로 헬멧 착용을 독려할 수 있는 시스템을 제안한다.
 
-**Keywords** Raspberry Pi, YOLOv3, Text Detection, OCR
+**Keywords** Raspberry Pi, YOLOv3, Text Detection, OCR  
 
-
-
+  
 ## Environments
 
 본 프로젝트는 아나콘다를 이용한 로컬환경 또는 colab에서 실행이 가능하다.
@@ -69,7 +69,7 @@ pip install -r requirements.txt
   - *detect_image*를 통해 사진의 클래스를 Helmet과 NonHelmet으로 판단하고 바운딩박스 정보를 받아온다.
   - 만약 오토바이 탑승자가 헬멧을 미착용했을 경우 해당 바운딩박스를 *textROI* 함수에 전달해준다.
   -  *textROI* 함수는 text detection 모델인 EAST text detector를 이용하여 오토바이 번호판의 위치를 탐지하고 해당 이미지를 반환해준다.
-  - *textRead* 함수에서는 번호판 이미지에서 문자를 추출하여 디지털문자로 반환해준다. [옵션](https://muthu.co/all-tesseract-ocr-options/)을 통해 사용하는 모델 및 인식 언어를 바꿔줄 수 있다.
+  - *textRead* 함수에서는 번호판 이미지에서 문자를 추출하여 디지털문자로 반환해준다. [옵션](https://muthu.co/all-tesseract-ocr-options/)을 통해 사용하는 모델 및 인식 언어를 바꿔줄 수 있다.  
 
 
 
