@@ -4,7 +4,7 @@
 
  (2022.03.03~2022.05.30)  
 
-[Report]() / [Video]() 
+[Report]() / [Video](https://drive.google.com/file/d/1Rvjpv1Ab4Hc6qQEWCPy_vL7AzPkf9qzl/view?usp=sharing) 
 
 프로젝트에 대한 자세한 설명은 보고서와 비디오를 통해 확인할 수 있다. 
 
