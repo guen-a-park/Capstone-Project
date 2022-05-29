@@ -48,7 +48,7 @@ pip install -r requirements.txt
 
   train image가 부족한 경우 data augmentation을 통해 dataset을 늘려줄 수 있다. augmenataion을 위한 다양한 옵션은 [imgaug](https://github.com/aleju/imgaug)에서 확인할 수 있다. 
 
-  augmentation을 통해 늘려준 이미지와 annotation 파일 역시 csv에 추가가 필요하므로 위의**convert_xml_csv.py** 파일을 재실행 해준다.
+  augmentation을 통해 늘려준 이미지와 annotation 파일 역시 csv에 추가가 필요하므로 위의 **convert_xml_csv.py** 파일을 재실행 해준다.
 
 - **train.py**
 
