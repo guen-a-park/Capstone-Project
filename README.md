@@ -1,6 +1,6 @@
 # Capstone-Project🏍️
 
-<img src="https://user-images.githubusercontent.com/77844152/170850973-a6d9197c-48f5-454f-83c1-0774e946af3b.png"  width="900" height="250">
+<img src="https://user-images.githubusercontent.com/77844152/170850973-a6d9197c-48f5-454f-83c1-0774e946af3b.png"  width="900" height="230">
 
  (2022.03.03~2022.05.30)  
 
