@@ -42,34 +42,35 @@ pip install -r requirements.txt
 
 - **convert_xml_csv.py**
 
-  train image와 [labelImg](https://github.com/tzutalin/labelImg)를 통해 만들어준 annotation 파일을 train에 필요한 하나의 csv로 만들어주는 코드이다. 그 결과인 helmet_anno.csv에서는 train image 경로와 함께 바운딩박스와 label 정보가 들어가게된다.
+  > train image와 [labelImg](https://github.com/tzutalin/labelImg)를 통해 만들어준 annotation 파일을 train에 필요한 하나의 csv로 만들어주는 코드이다. 
+  >
+  > 그 결과인 helmet_anno.csv에서는 train image 경로와 함께 바운딩박스와 label 정보가 들어가게된다.
 
 - **augmentation.ipynb**
 
-  train image가 부족한 경우 data augmentation을 통해 dataset을 늘려줄 수 있다. augmenataion을 위한 다양한 옵션은 [imgaug](https://github.com/aleju/imgaug)에서 확인할 수 있다. 
-
-  augmentation을 통해 늘려준 이미지와 annotation 파일 역시 csv에 추가가 필요하므로 위의 **convert_xml_csv.py** 파일을 재실행 해준다.
-
+  > train image가 부족한 경우 data augmentation을 통해 dataset을 늘려줄 수 있다. augmenataion을 위한 다양한 옵션은 [imgaug](https://github.com/aleju/imgaug)에서 확인할 수 있다. 
+  >
+  
 - **train.py**
 
-  custom data를 이용해 새로운 yolo model을 만들기 위한 코드이다. log_dir에서 중간 생성된 모델 역시 확인할 수 있다.
-
-  **Note** : batch size에 따라(사이즈가 커질수록) 메모리 에러가 발생할 수 있다. 또한 gpu 성능에 따라 로컬 실행이 어려울 수 있으므로 필요하다면 구글 드라이브에서 annotation.csv를 다시 생성하고 colab에서 train해준다.
+  > custom data를 이용해 새로운 yolo model을 만들기 위한 코드이다. log_dir에서 trainig 도중 생성된 모델 역시 확인할 수 있다.
+>
+  > **Note** : batch size에 따라(사이즈가 커질수록) 메모리 에러가 발생할 수 있다. 또한 gpu 성능에 따라 로컬 실행이 어려울 수 있으므로 필요하다면 구글 드라이브에서 annotation.csv를 다시 생성하고 colab에서 train해준다.
 
 - **yolo.py**
 
-  object detection에 필요한 여러 모듈을 담은 클래스파일이다. 사진에서 또는 영상에서의 object detection 여부에 따라서 *detect_image* 함수 또는 *detect_video* 함수를 확인한다. 함수에서는 프로젝트에 필요한 정보를 return해준다.
+  > object detection에 필요한 여러 모듈을 담은 클래스파일이다. 사진에서 또는 영상에서의 object detection 여부에 따라서 *detect_image* 함수 또는 *detect_video* 함수를 확인한다. 함수에서는 프로젝트에 필요한 정보를 return해준다.
 
 - **yolo_video.py** 
 
-  생성한 모델을 통해 최종적으로 프로젝트의 알고리즘을 실행할 수 있는 코드이다. 실행 과정은 다음과 같다.
-
-  - **train.py**를 통해새롭게 생성한 모델과 판단할 클래스에 대한 정보를 담은 파일의 경로를 지정해준다. 이후 test할 이미지의 경로도 지정한다.
-
-  - *detect_image*를 통해 사진의 클래스를 Helmet과 NonHelmet으로 판단하고 바운딩박스 정보를 받아온다.
-  - 만약 오토바이 탑승자가 헬멧을 미착용했을 경우 해당 바운딩박스를 *textROI* 함수에 전달해준다.
-  -  *textROI* 함수는 text detection 모델인 EAST text detector를 이용하여 오토바이 번호판의 위치를 탐지하고 해당 이미지를 반환해준다.
-  - *textRead* 함수에서는 번호판 이미지에서 문자를 추출하여 디지털문자로 반환해준다. [옵션](https://muthu.co/all-tesseract-ocr-options/)을 통해 사용하는 모델 및 인식 언어를 바꿔줄 수 있다.  
+  > 생성한 모델을 통해 최종적으로 프로젝트의 알고리즘을 실행할 수 있는 코드이다. 실행 과정은 다음과 같다.
+  >
+  > - **train.py**를 통해새롭게 생성한 모델과 판단할 클래스에 대한 정보를 담은 파일의 경로를 지정해준다. 이후 test할 이미지의 경로도 지정한다.
+  >
+  > - *detect_image*를 통해 사진의 클래스를 Helmet과 NonHelmet으로 판단하고 바운딩박스 정보를 받아온다.
+  > - 만약 오토바이 탑승자가 헬멧을 미착용했을 경우 해당 바운딩박스를 *textROI* 함수에 전달해준다.
+  > -  *textROI* 함수는 text detection 모델인 EAST text detector를 이용하여 오토바이 번호판의 위치를 탐지하고 해당 이미지를 반환해준다.
+  > - *textRead* 함수에서는 번호판 이미지에서 문자를 추출하여 디지털문자로 반환해준다. [옵션](https://muthu.co/all-tesseract-ocr-options/)을 통해 사용하는 모델 및 인식 언어를 바꿔줄 수 있다.  
 
 
 
