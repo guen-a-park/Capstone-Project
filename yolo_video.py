@@ -14,7 +14,7 @@ config_dict = {}
 yolo2 = YOLO(model_path='C:/Users/kate1/capstone/keras-yolo3/model_data/helmet.h5',
             anchors_path='C:/Users/kate1/capstone/keras-yolo3/model_data/yolo_anchors.txt',
             classes_path='C:/Users/kate1/capstone/keras-yolo3/model_data/helmet_classes.txt',
-           score=0.55)
+           score=0.3)
 
 
 FLAGS = None
